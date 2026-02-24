@@ -1,0 +1,33 @@
+# This is creating the service for the backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: dev
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+
+# This is the service for the backend
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: dev
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+  
